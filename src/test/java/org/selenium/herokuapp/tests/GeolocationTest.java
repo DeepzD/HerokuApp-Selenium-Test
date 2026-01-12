@@ -51,24 +51,17 @@ public class GeolocationTest extends permissionPopup {
         Geolocation geo = new Geolocation(driver);
         geo.clickOnWhereAmIButton();
 
-//        ChromeOptions options = new ChromeOptions();
-//
-//        Map<String, Object> prefs = new HashMap<>();
-//        prefs.put("profile.default_content_setting_values.geolocation", 1);
-//        options.setExperimentalOption("prefs", prefs);
-
         Assert.assertEquals(geo.getLatitudeValue(),"-36.8738304");
         Assert.assertEquals(geo.getLongitudeValue(),"174.7648512");
     }
 
-//    @Test
-//    public void ViewCurrentLocationInGoogleMap()
-//    {
-//        HomePage homePage=new HomePage(driver);
-//        homePage.clickOnGeolocation();
-//        Geolocation geo = new Geolocation(driver);
-//        geo.clickOnWhereAmIButton();
-//
-//        //geo.clickOnGoogleLink();
-//    }
+    @Test
+    public void ViewCurrentLocationInGoogleMap()
+    {
+        HomePage homePage=new HomePage(driver);
+        homePage.clickOnGeolocation();
+        Geolocation geo = new Geolocation(driver);
+        geo.clickOnWhereAmIButton();
+        geo.clickOnGoogleLink();
+    }
 }

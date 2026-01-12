@@ -6,3 +6,10 @@
 2026-01-11 19:06:55 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 
 2026-01-11 19:07:08 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 
 2026-01-11 19:07:16 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 
+2026-01-12 19:09:11 [main] INFO  org.selenium.herokuapp.log4j.Log4JTest - Starting test execution
+2026-01-12 19:09:11 [main] WARN  org.selenium.herokuapp.log4j.Log4JTest - This is a warning
+2026-01-12 19:09:11 [main] ERROR org.selenium.herokuapp.log4j.Log4JTest - This is an error message
+2026-01-12 19:09:11 [main] INFO  org.selenium.herokuapp.log4j.Log4JTest - Test execution completed
+2026-01-12 19:09:11 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 
+2026-01-12 19:09:20 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 
+2026-01-12 19:09:31 [main] INFO  org.selenium.herokuapp.tests.AuthenticationTest - Initializing the browser 

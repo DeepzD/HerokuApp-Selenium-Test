@@ -1,7 +1,13 @@
 package org.selenium.herokuapp.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.naming.directory.NoSuchAttributeException;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 
 public class Geolocation {
 
@@ -22,10 +28,17 @@ public class Geolocation {
         driver.findElement(AmIButton).click();
     }
 
-    public String getLatitudeValue(){
-        String LatitudeValue = driver.findElement(Latitude).getText();
-        System.out.println(LatitudeValue);
-        return LatitudeValue;
+    public String getLatitudeValue() {
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            WebElement element= wait.until(ExpectedConditions.visibilityOfElementLocated(Latitude));
+            String LatitudeValue = element.getText();
+            System.out.println(LatitudeValue);
+            return LatitudeValue;
+        } catch (TimeoutException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     public String getLongitudeValue(){
@@ -33,6 +46,15 @@ public class Geolocation {
         return LongtitudeValue;
     }
     public void clickOnGoogleLink() {
-        driver.findElement(GoogleLink).click();
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+        try{
+            WebElement link= wait.until(ExpectedConditions.visibilityOfElementLocated(GoogleLink));
+            link.click();
+        }
+        catch (TimeoutException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
