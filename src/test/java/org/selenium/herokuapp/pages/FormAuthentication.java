@@ -2,6 +2,10 @@ package org.selenium.herokuapp.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class FormAuthentication {
 
@@ -10,8 +14,10 @@ public class FormAuthentication {
     By txtUsername =By.xpath("//input[@id='username']");
     By txtPassword = By.xpath("//input[@id='password']");
     By loginButton = By.xpath("//button[@type='submit']");
-    By flashMessageUsername = By.xpath("//div[@id='flash' and contains(normalize-space(),'username')]");
-    By flashMessagePassword = By.xpath("//div[@id='flash' and contains(normalize-space(),'password')]");
+    //By flashMessageUsername = By.xpath("//div[@id='flash' and contains(normalize-space(),'username')]");
+    //By flashMessagePassword = By.xpath("//div[@id='flash' and contains(normalize-space(),'password')]");
+    By flashMessageUsername = By.id("flash");
+    By flashMessagePassword = By.id("flash");
 
     public FormAuthentication(WebDriver driver)
     {
@@ -37,8 +43,9 @@ public class FormAuthentication {
 
     public String InvalidUsernameErrorMessage()
     {
-        String errorMessage_Username = driver.findElement(flashMessageUsername).
-                getText();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        String errorMessage_Username = wait.until(ExpectedConditions.
+                visibilityOfElementLocated(flashMessageUsername)).getText();
         errorMessage_Username = errorMessage_Username.split("\n")[0];
         System.out.println(errorMessage_Username);
         return errorMessage_Username;
